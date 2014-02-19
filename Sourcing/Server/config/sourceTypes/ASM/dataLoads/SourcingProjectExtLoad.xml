@@ -1,0 +1,12 @@
+<!DOCTYPE allDataLoads SYSTEM "../../../../ariba/analytics/core/dataLoads.dtd">
+<allDataLoads>
+
+<inDataLoad name="ACMSourcingProject">
+    <fieldMappings>
+        <field name="Budgeted">
+            <aqlMapping selectField="Project.Budgeted"/>
+        </field>
+    </fieldMappings>
+</inDataLoad>
+
+</allDataLoads>
