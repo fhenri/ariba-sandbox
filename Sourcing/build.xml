@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="sandbox.sourcing.9r1" default="ariba.compile" basedir=".">
+  <target name="help" description="Provides build file specific help">
+    <echo message="Please run: $ ant -v -projecthelp"/>
+  </target>
+
+  <property file="local.properties"/>
+  <property name="VERSION" value="1.0"/>
+  <property name="FORCE_DEPLOY" value="false"/>
+  <property name="DEBUGINFO" value="true"/>
+
+  <path id="project.ariba.classpath">
+    <fileset dir="${ARIBA_SERVER_DEV}/classes">
+      <include name="*.zip"/>
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="${ARIBA_SERVER_DEV}/classes/endorsed">
+      <include name="*.jar"/>
+    </fileset>
+    <pathelement location="${ARIBA_SERVER_DEV}/3rdParty/jre/NT/1.5.0/lib/jsse.jar"/>
+  </path>
+
+  <target name="init">
+    <mkdir dir="Server/classes/extensions"/>
+    <tstamp />
+  </target>
+
+  <target name="clean" description="Cleans up all build target directories">
+    <delete dir="Server/classes/extensions"/>
+  </target>
+
+  <target name="compile" depends="init" description="Compiles All Java Sources">
+    <javac destdir="Server/classes/extensions" debug="${DEBUGINFO}">
+      <src path="Server/config/java"/>
+      <classpath refid="project.ariba.classpath"/>
+    </javac>
+  </target>
+
+  <target name="deploy"
+        depends="compile"
+        description="Deploys a test image to DEV instance">
+    <copy todir="${ARIBA_SERVER_DEV}" overwrite="${FORCE_DEPLOY}">
+      <fileset dir="Server" includes="**">
+        <exclude name="ariba/base/**"/>
+        <exclude name="ariba/analytics/**"/>
+        <exclude name="ariba/htmlui/**"/>
+      </fileset>
+    </copy>
+    <copy todir="${ARIBA_WEBCOM_DEV}" overwrite="${FORCE_DEPLOY}">
+      <fileset dir="WebComponents" includes="**"/>
+    </copy>
+  </target>
+
+  <target name="ariba.checkmeta" depends="deploy">
+    <exec executable="${ARIBA_SERVER_DEV}/bin/checkmeta.exe" failonerror="true"/>
+  </target>
+
+  <target name="ariba.reshapeDB" depends="deploy">
+    <exec executable="${ARIBA_SERVER_DEV}/bin/resetDataBaseOwner.exe" failonerror="true"/>
+    <exec executable="${ARIBA_SERVER_DEV}/bin/initdb.exe" failonerror="true">
+      <arg line="-reshapedb"/>
+    </exec>
+  </target>
+
+  <target name="ariba.loadmeta" depends="deploy">
+    <exec executable="${ARIBA_SERVER_DEV}/bin/initdb.exe" failonerror="true">
+      <arg line="-loadmeta"/>
+    </exec>
+  </target>
+	
+  <target name="ariba.DBOLAPProcessing" depends="checkmeta">
+    <exec executable="${ARIBA_SERVER_DEV}/bin/resetDataBaseOwner.exe" failonerror="true"/>
+     <exec executable="${ARIBA_SERVER_DEV}/bin/diagnosedim.exe" failonerror="true"/>
+    <exec executable="${ARIBA_SERVER_DEV}/bin/runtask.exe" failonerror="true">
+      <arg line="-task Task.DBOLAPProcessing -incremental -logToFile -reshapeOnly"/>
+    </exec>
+	</target>
+
+  <target name="ariba.simpleMigrator" depends="deploy">
+    <exec executable="${ARIBA_SERVER_DEV}/bin/simpleMigrator.exe" failonerror="true" logerror="off"/>
+  </target>
+	
+  <target name="ariba.analysis.simplemigrator">
+    <antcall target="ariba.deploy"/>
+    <exec executable="${ARIBA_SERVER_DEV}/bin/simpleMigrator.exe" failonerror="true" logerror="on">
+      <arg line="-migrateStarSchema"/>
+    </exec>
+  </target>
+  
+  <target name="start.dev">
+    <exec executable="${ARIBA_SERVER_DEV}/bin/resetDataBaseOwner.exe" failonerror="true" logerror="off"/>
+    <exec executable="${ARIBA_SERVER_DEV}/bin/startsourcing.exe" failonerror="true" logerror="off"/>
+  </target>
+
+  <target name="stop.dev">
+    <exec executable="${ARIBA_SERVER_DEV}/bin/stopsourcing.exe" failonerror="true" logerror="off"/>
+  </target>
+
+  <target name="restart.dev">
+    <antcall target="stop.dev"/>
+    <antcall target="ariba.simpleMigrator"/>
+    <antcall target="start.dev"/>
+  </target>
+
+  <target name="update.parameters.table"
+          depends="deploy"
+          description="runs tableedit to add the custom parameters">
+    <echo>Run Tableedit to Add Custom Parameters</echo>
+    <exec dir="${ARIBA_SERVER_DEV}" executable="${ARIBA_SERVER_DEV}/bin/tableedit.exe">
+        <arg line="-script config/script/UpdateTable.table"/>
+    </exec>
+    </target>
+
+</project>

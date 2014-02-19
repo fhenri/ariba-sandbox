@@ -1,0 +1,12 @@
+/.vagrant
+/.idea
+Sourcing/Server/ariba/analytics/
+Sourcing/Server/ariba/base/
+Sourcing/Server/ariba/htmlui/
+Sourcing/Server/classes/extensions/config/
+Buyer/Server/ariba/base/
+Buyer/Server/ariba/htmlui
+*.iws
+*.iml
+Buyer/local.properties
+Sourcing/local.properties
