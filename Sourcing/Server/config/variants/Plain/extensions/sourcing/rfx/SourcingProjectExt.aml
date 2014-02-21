@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE extension SYSTEM "../../../../../../ariba/base/meta/core/extensions.dtd">
-<extension name="config.variants.Plain.extensions.collaborate.sourcing.SourcingProjectExt">
+<extension name="config.variants.Plain.extensions.sourcing.rfx.SourcingProjectExt">
     <inModule name="ariba.sourcing.rfx.Projects">
         <inClass name="ariba.sourcing.rfx.SourcingProject">
 

@@ -1,5 +1,5 @@
 <!DOCTYPE extension SYSTEM "../../../../../../ariba/base/meta/core/extensions.dtd">
-<extension name="config.variants.Plain.extensions.analysis.fact.SourcingProjectExt">
+<extension name="config.variants.Plain.extensions.analytics.fact.SourcingProjectExt">
 <import extension="ariba.variants.Plain.extensions.ACMAnalysis"/>
 
 <inModule name="ariba.analytics.core.Analytics">
