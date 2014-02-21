@@ -1,4 +1,4 @@
-package config.sandbox.task.reporting;
+package sandbox.task.reporting;
 
 import java.util.Map;
 
@@ -6,8 +6,8 @@ import ariba.util.log.Log;
 import ariba.util.scheduler.ScheduledTaskException;
 import ariba.util.scheduler.Scheduler;
 
-import config.sandbox.excel.analysis.AnalysisSchemaReference;
-import config.sandbox.task.TaskUtil;
+import sandbox.excel.analysis.AnalysisSchemaReference;
+import sandbox.task.TaskUtil;
 
 /**
  * Run a report to document the Analysis schema.

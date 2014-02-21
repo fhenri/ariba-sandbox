@@ -1,4 +1,4 @@
-package config.sandbox.excel.analysis;
+package sandbox.excel.analysis;
 
 import ariba.analytics.metadata.FactTableMeta;
 

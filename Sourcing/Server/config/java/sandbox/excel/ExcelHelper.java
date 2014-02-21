@@ -1,4 +1,4 @@
-package config.sandbox.excel;
+package sandbox.excel;
 
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFFont;

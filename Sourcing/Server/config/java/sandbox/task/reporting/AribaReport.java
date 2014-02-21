@@ -1,4 +1,4 @@
-package config.sandbox.task.reporting;
+package sandbox.task.reporting;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -38,7 +38,8 @@ import ariba.util.log.Log;
 import ariba.util.net.BasicEmailClient;
 import ariba.util.scheduler.ScheduledTask;
 import ariba.util.scheduler.Scheduler;
-import config.sandbox.task.TaskUtil;
+
+import sandbox.task.TaskUtil;
 
 /**
  *

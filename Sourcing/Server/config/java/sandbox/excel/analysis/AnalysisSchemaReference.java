@@ -1,4 +1,4 @@
-package config.sandbox.excel.analysis;
+package sandbox.excel.analysis;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,7 +24,7 @@ import ariba.util.core.MapUtil;
 import ariba.util.core.StringUtil;
 import ariba.util.log.Log;
 
-import config.sandbox.excel.ExcelHelper;
+import sandbox.excel.ExcelHelper;
 
 /**
  * The Analysis Schema Reference gives the Analysis schema representation in xl file.

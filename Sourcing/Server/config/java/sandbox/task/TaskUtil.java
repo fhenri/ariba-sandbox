@@ -1,4 +1,4 @@
-package config.sandbox.task;
+package sandbox.task;
 
 import java.util.List;
 import java.util.Map;
@@ -8,6 +8,7 @@ import ariba.util.core.ListUtil;
 import ariba.util.core.StringUtil;
 
 /**
+ *
  * @author fhenri
  */
 @SuppressWarnings("unchecked")

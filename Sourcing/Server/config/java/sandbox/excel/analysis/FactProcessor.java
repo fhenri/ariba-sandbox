@@ -1,4 +1,4 @@
-package config.sandbox.excel.analysis;
+package sandbox.excel.analysis;
 
 import java.util.Iterator;
 import java.util.List;
@@ -24,7 +24,7 @@ import ariba.analytics.metadata.VisibilityUtil;
 import ariba.util.core.SetUtil;
 import ariba.util.log.Log;
 
-import config.sandbox.excel.ExcelHelper;
+import sandbox.excel.ExcelHelper;
 
 /**
  * Fact sheet will contain:

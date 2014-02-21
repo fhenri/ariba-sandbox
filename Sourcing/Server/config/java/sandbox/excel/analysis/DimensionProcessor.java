@@ -1,4 +1,4 @@
-package config.sandbox.excel.analysis;
+package sandbox.excel.analysis;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import ariba.analytics.metadata.VisibilityUtil;
 import ariba.util.core.ListUtil;
 import ariba.util.log.Log;
 
-import config.sandbox.excel.ExcelHelper;
+import sandbox.excel.ExcelHelper;
 
 /**
  * Process dimension information. Read as much as possible of the dimension meta data and outputs
