@@ -1,14 +1,11 @@
-/**
- * 
- */
-package config.sandbox.dashboard;
+package sandbox.dashboard;
 
 import ariba.analytics.widgets.AnalysisPortletController;
 import ariba.user.core.User;
 
 /**
- * @author fhenri
  *
+ * @author fhenri
  */
 public class DemoPortletController extends AnalysisPortletController {
 

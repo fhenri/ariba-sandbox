@@ -1,7 +1,4 @@
-/**
- * 
- */
-package config.sandbox.dashboard;
+package sandbox.dashboard;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,8 +13,8 @@ import ariba.util.core.Fmt;
 import ariba.util.log.Log;
 
 /**
+ *
  * @author fhenri
- * 
  */
 public class DemoPortletContent extends PortletContent {
 

@@ -10,7 +10,7 @@
                 <UniqueName>PortletDemo</UniqueName>
                 <DisplayName>Demo Ariba Portlet</DisplayName>
                 <Description>Ariba Custom Portlet pulling financial exchange rate data</Description>
-                <Controller>&lt;ProviderURL&gt;/ad/&lt;action&gt;/config.sandbox.dashboard.DemoPortletController</Controller>
+                <Controller>&lt;ProviderURL&gt;/ad/&lt;action&gt;/sandbox.dashboard.DemoPortletController</Controller>
                 <ContentType>HTML</ContentType>
                 <IsSingleton>true</IsSingleton>
                 <IsEditable>false</IsEditable>
