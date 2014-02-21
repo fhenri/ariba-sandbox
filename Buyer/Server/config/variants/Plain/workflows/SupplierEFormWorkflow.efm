@@ -13,7 +13,7 @@
     
     <state name="APPROVED">
         <entry>
-            <action implementation="config.sandbox.eform.supplier.action.SupplierEFormApproved"/>
+            <action implementation="sandbox.eform.supplier.action.SupplierEFormApproved"/>
         </entry>
     </state>
 </workflow>

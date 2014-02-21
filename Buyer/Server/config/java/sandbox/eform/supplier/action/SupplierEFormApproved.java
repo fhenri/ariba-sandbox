@@ -1,4 +1,4 @@
-package config.sandbox.eform.supplier.action;
+package sandbox.eform.supplier.action;
 
 import ariba.approvable.core.Approvable;
 import ariba.base.core.ClusterRoot;
