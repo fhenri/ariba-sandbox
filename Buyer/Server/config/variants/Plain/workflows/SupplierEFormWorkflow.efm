@@ -1,0 +1,19 @@
+<!DOCTYPE workflow SYSTEM "../../../../ariba/server/workflowserver/workflow.dtd">
+<workflow name="SupplierEForm"
+          workflowClass="sandbox.eform.supplier.SupplierEForm"
+          description="This is our supplier eForm workflow - create suppliers once request is approved">
+          
+    <beginState name="BEGIN">
+            <transition name="BEGIN_TO_APPROVED">
+                <fromState name="BEGIN"/>
+                <event type="SupplierEForm:Approved"/>
+                <toState name="APPROVED"/>
+            </transition >
+    </beginState>
+    
+    <state name="APPROVED">
+        <entry>
+            <action implementation="config.sandbox.eform.supplier.action.SupplierEFormApproved"/>
+        </entry>
+    </state>
+</workflow>

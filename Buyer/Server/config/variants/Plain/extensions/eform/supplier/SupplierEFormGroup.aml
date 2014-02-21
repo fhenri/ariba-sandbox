@@ -1,0 +1,36 @@
+<!DOCTYPE extension SYSTEM "../../../../../ariba/base/meta/core/extensions.dtd">
+<extension name="config.variants.Plain.extensions.eform.supplier.SupplierEFormGroup">
+  <import extension="config.variants.Plain.extensions.eform.supplier.SupplierEForm"/>
+  <inModule name="ariba.common.meta.Requisition">
+    
+    <group name="HeaderDetailsEditable">
+        <groupClass name="sandbox.eform.supplier.SupplierEForm">
+            <remove>
+                <groupField name="Name"/>
+            </remove>
+        </groupClass>
+    </group>
+    
+    <group name="HeaderDetailsNoneditable">
+        <groupClass name="sandbox.eform.supplier.SupplierEForm">
+            <groupField name="SupplierName"/>
+            <groupField name="SupplierDUNSId"/>
+        </groupClass>
+    </group>
+    
+    <group name="SupplierEFormDetailsGroup">
+        <groupClass name="sandbox.eform.supplier.SupplierEForm">
+            <groupField name="SupplierName"/>
+            <groupField name="SupplierDUNSId"/>
+        </groupClass>
+    </group>
+    
+    <group name="SupplierEFormSearchGroup">
+        <groupClass name="sandbox.eform.supplier.SupplierEForm">
+            <groupField name="SupplierName"/>
+            <groupField name="SupplierDUNSId"/>
+        </groupClass>
+    </group>
+    
+  </inModule>
+</extension>

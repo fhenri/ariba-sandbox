@@ -1,0 +1,40 @@
+<!DOCTYPE extension SYSTEM "../../../../../../../ariba/base/meta/core/extensions.dtd">
+<extension name="config.variants.Plain.extensions.eform.supplier.SupplierEForm">
+  <inModule name="ariba.common.meta.Requisition">
+  
+    <class name="sandbox.eform.supplier.SupplierEForm"
+           prefix="sef"
+           partitioned="true"
+           super="ariba.approvable.core.Approvable">
+        
+        <field name="SupplierName">
+            <type class="java.lang.String" length="255"/>
+            <properties label="@sandbox.eform.supplier/SupplierNameLabel"
+                        rank="100"
+                        required="true"/>
+        </field>
+
+        <field name="SupplierDUNSId">
+             <type class="java.lang.String" length="15"/>
+            <properties label="@sandbox.eform.supplier/SupplierDunsLabel"
+                        rank="200"
+                        prototypeValue="12-345-6789"
+                        format="DD-DDD-DDDD"/>
+        </field>
+
+        <overrides>
+            <override name="ClassProperties">
+                <properties uiName = "@sandbox.eform.supplier/SupplierRequestLabel"
+                            copyable="true"
+                            printable="true"
+                            detailsGroup="SupplierEFormDetailsGroup"
+                            searchGroup="SupplierEFormSearchGroup"
+                            wizardFile="Eform/SupplierEform.awz"
+                            _workflowName="SupplierEForm"
+                            _workflowEvent="SupplierEForm:Approved"/>
+             </override>
+        </overrides>
+        
+    </class>
+  </inModule>
+</extension>

@@ -1,0 +1,26 @@
+<!DOCTYPE wizard SYSTEM "../../../../../ariba/htmlui/fieldsui/wizards/wizard.dtd">
+
+<wizard name            = "EformWizard"
+        displayName     = "@ariba.html.arp/FormCreateTitle"
+        description     = "Wizard for submitting eform process."
+        version         = "1.0"
+        flow            = "SEQUENTIAL"
+        contextClass    = "ariba.htmlui.eform.wizards.ARBFormContext"
+        controllerClass = "ariba.htmlui.eform.wizards.ARBFormController"
+        pageTemplate    = "ARPApprovableWizard"
+        exitPage        = "ARPApprovableWizardExit"
+        endPage         = "ARPFormDone">
+
+        <javadoc>
+            This is the eform wizard.
+        </javadoc>
+
+        <step name        = "CreateFormStep5"
+              displayName = "@ariba.html.commonui/CreateFormStep5"
+              flow        = "UNORDERED">
+
+            <step name="ReviewFrame"     file = "Eform/Review.afr"/>
+            <step name="SubmitHookFrame" file = "Approvable/SubmitHook.afr"/>
+            <step name="ErrorFrame"      file = "Approvable/ErrorSummary.afr"/>
+        </step>
+ </wizard>
