@@ -1,0 +1,13 @@
+<AWConditional ifTrue="$hasErrors">
+    <span class="error">
+        <AWLocal key="a001">
+            Error getting content for demo portlet.
+        </AWLocal>
+    </span>
+<AWElse equalNull="$content"/>
+    <AWLocal key="a002">
+        The webservice site is not accessible and rendering of the portlet is not possible.
+    </AWLocal>
+<AWElse/>
+   <AWPrimitiveString value="$content"/>
+</AWConditional>

@@ -1,0 +1,22 @@
+<PortletProviders>
+    <PortletProvider stringFile="&lt;ProviderURL&gt;/ad/stringFile/PortletProviderActions?stringFile=ariba.analytics.portlets">
+        <UniqueName>FHSolution Ariba Sandbox</UniqueName>
+        <DisplayName>FHSolution Ariba Sandbox - Portlet Example</DisplayName>
+        <Description>Custom content provided by www.fhsolution.com</Description>
+        <HttpURL>&HttpURL;</HttpURL>
+        <ServerURL>&ServerURL;</ServerURL>
+        <Portlets>
+            <Portlet>
+                <UniqueName>PortletDemo</UniqueName>
+                <DisplayName>Demo Ariba Portlet</DisplayName>
+                <Description>Ariba Custom Portlet pulling financial exchange rate data</Description>
+                <Controller>&lt;ProviderURL&gt;/ad/&lt;action&gt;/config.sandbox.dashboard.DemoPortletController</Controller>
+                <ContentType>HTML</ContentType>
+                <IsSingleton>true</IsSingleton>
+                <IsEditable>false</IsEditable>
+                <IsTOC>false</IsTOC>
+                <SetupRequired>true</SetupRequired>
+            </Portlet>
+        </Portlets>
+    </PortletProvider>
+</PortletProviders>
